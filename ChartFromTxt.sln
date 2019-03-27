@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartFromTxt", "ChartFromTx
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartLogic", "ChartLogic\ChartLogic.csproj", "{DAD8FBBA-1C81-4F8B-AA2C-02A2454807BC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Live-Chart", "Live-Chart", "{2BB49F05-EBDC-49B6-8EA4-D05A76C4A7BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

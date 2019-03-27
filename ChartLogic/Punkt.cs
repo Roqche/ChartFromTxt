@@ -1,6 +1,6 @@
 ﻿namespace ChartLogic
 {
-    internal class Punkt
+    public class Punkt
     {
         public Punkt(decimal time, decimal pd, decimal fn)
         {

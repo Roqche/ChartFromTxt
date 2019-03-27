@@ -10,7 +10,7 @@ namespace ChartLogic
             List<string> Rows = new List<string>();
             string file_name = @"C:\Users\Bart\Downloads\PTFE.TXT";
             string[] lines = File.ReadAllLines(file_name);
-            int row = 0;
+            int row = 1;
             foreach (string line in lines)
             {
                 row++;
@@ -22,7 +22,7 @@ namespace ChartLogic
 
             for (int i = row; i < lines.Length; i++)
             {
-                Rows.Add(lines[i+1]);
+                Rows.Add(lines[i]);
             }
 
             return Rows;
