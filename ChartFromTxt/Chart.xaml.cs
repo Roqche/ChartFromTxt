@@ -16,47 +16,42 @@ namespace ChartFromTxt
             InitializeComponent();
 
             List<Punkt> punkty = Program.Download();
-            //decimal[] timeValues = new decimal[100];
-            //decimal[] fnValues = new decimal[100];
-            //decimal[] pdValues = new decimal[100];
-
-            //for (int i = 0; i<punkty.Count; i++)
-            //{
-            //    timeValues[i] = punkty.pun;
-
-            //}
-
-            var values1 = new CartesianMapper<double>()
-                .X((value, index) => index)
-                .Y((value, index) => value);
 
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
                 {
                     Title = "To niebieskie",
-                    Values = new ChartValues<decimal> ().
+                    Values = LineA
+                    PointGeometry = null
                 },
                 new LineSeries
                 {
                     Title = "To czerwone",
-                    Values = values1,
+                    Values = new ChartValues<decimal>(),
                     PointGeometry = null
                 }
             };
-                foreach (Punkt punkt in punkty) {values1 = punkt.Time;}
 
-            Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
-            YFormatter = value => value.ToString("C");
-            
-            //modifying any series values will also animate and update the chart
-            //SeriesCollection[3].Values.Add(5d);
+            foreach (var punkt in punkty)
+            {
+                SeriesCollection[0].Values.Add(punkt.Fn);
+                SeriesCollection[1].Values.Add(punkt.Pd);
+            }
+
+
+            Labels = new[] { "100", "200", "300", "400", "500" };
+
+
+            //YFormatter = value => value.ToString("C");
 
             DataContext = this;
         }
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> YFormatter { get; set; }
+        public ChartValues<IObservableChartPoint> LineA { get; set; }
+        public ChartValues<IObservableChartPoint> LineB { get; set; }
 
     }
 }
